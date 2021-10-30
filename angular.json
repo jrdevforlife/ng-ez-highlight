@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ez-highlight": {
+      "projectType": "library",
+      "root": "projects/ez-highlight",
+      "sourceRoot": "projects/ez-highlight/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ez-highlight/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ez-highlight/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ez-highlight/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ez-highlight/src/test.ts",
+            "tsConfig": "projects/ez-highlight/tsconfig.spec.json",
+            "karmaConfig": "projects/ez-highlight/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ez-highlight"
 }
